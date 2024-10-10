@@ -7,7 +7,11 @@ import connectDB from "./src/config/db.js";
 import AuthRouter from "./src/routes/AuthRoute.js";
 
 const app = express();
-app.use(cors());
+const corsOption={
+    origin:process.env.PORT,
+    methods:'GET,HEAD,PUT,POST,PATCH,DELETE'
+};
+app.use(cors(corsOption));
 const port = process.env.PORT || 4000;
 
 // Connect to the database
